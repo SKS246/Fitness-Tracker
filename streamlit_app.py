@@ -10,7 +10,7 @@ def main():
                        page_icon='💪', layout='wide')
 
     st.header("Hello!")
-    st.write("Congratulations on taking your first step towards a healthy lifestyle. This website will be your go-to website for you to set your fitness goals based on your current state and identify small steps to be taken everyday. Remember the goals suggested by the website are approximate and may not be exact. You can use this as an estimate to achieve your goals! Scroll on!")
+    st.write("Congratulations on taking your first step towards a healthy lifestyle. This website will be your go-to website for you to set your fitness goals based on your current state and identify small steps to be taken everyday. Remember, the goals suggested by the website are approximate. You can use this as an estimate to achieve your goals! Scroll on! Take your first step towards a new you!")
     st.write("---")
 
     st.subheader("Current Stage")
