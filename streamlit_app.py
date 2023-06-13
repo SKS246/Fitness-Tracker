@@ -76,7 +76,7 @@ def main():
     elif status == "Moderate thin":
         st.write("You need to gain some weight, but you are in good shape!")
     elif status == "Perfect":
-        st.write("Great Job! Maintain your fitness!")
+        st.write("Great Job! Maintain your fitness! You can continue to enjoy the goodness of life!")
     elif status == "Moderate obese":
         st.write("You need to lose some weight, but you are in good shape!")
     elif status == "Severe obese":
@@ -106,7 +106,7 @@ def main():
             "How many days are you looking to loose this weight in?", min_value=60)
         steps_per_day = round(total_steps/time)
         st.write(
-            f"For that you need to take approximately {steps_per_day} steps per day while maintaing a good diet.")
+            f"For that you need to take approximately {steps_per_day} steps per day while maintaing a good diet and a healthy lifestyle.")
     elif cla == "thin":
         change = min_w - change
         st.write(f"You need to gain a minimum {round(change)} KGs")
@@ -114,8 +114,8 @@ def main():
             "How many days are you looking to gain this weight in?", min_value=60)
         calories_gain = calPerGainWeight * round(change)
         calories_per_day = round(calories_gain/time)
-        st.write(
-            f"For that you need to consume approximately {calories_per_day} calories per day while maintaing a good exercise routine.")
+        st.write(f"For that you need to consume approximately {calories_per_day} calories per day while maintaing a good exercise routine.")
+        st.write("Continue your journey of 'a new you' with a positive mindset. Bon voyage!")
 
 
 if __name__ == '__main__':
