@@ -76,7 +76,7 @@ def main():
     elif status == "Moderate thin":
         st.write("You need to gain some weight, but you are in good shape!")
     elif status == "Perfect":
-        st.write("Great Job! Maintain your fitness! You can continue to enjoy the goodness of life!")
+        st.write("Great Job! Maintain your fitness!")
     elif status == "Moderate obese":
         st.write("You need to lose some weight, but you are in good shape!")
     elif status == "Severe obese":
@@ -86,8 +86,7 @@ def main():
     max_w = height * height * 25
 
     if weight >= min_w and weight <= max_w:
-        st.subheader(
-            "You can leave the website if you want to, you are on track!")
+        st.subheader("You can continue to enjoy the goodness of life! You are on track!")
     else:
         st.write(
             f"To be 'Healthy' you need to be in-between weights: {round(min_w, 2)} KGs and {round(max_w, 2)} KGs")
@@ -105,8 +104,8 @@ def main():
         time = st.number_input(
             "How many days are you looking to loose this weight in?", min_value=60)
         steps_per_day = round(total_steps/time)
-        st.write(
-            f"For that you need to take approximately {steps_per_day} steps per day while maintaing a good diet and a healthy lifestyle.")
+        st.write(f"For that you need to take approximately {steps_per_day} steps per day while maintaining a good diet and a healthy lifestyle.")
+        st.write("Continue your journey of 'a new you' with a positive mindset. Bon voyage!")
     elif cla == "thin":
         change = min_w - change
         st.write(f"You need to gain a minimum {round(change)} KGs")
@@ -114,7 +113,7 @@ def main():
             "How many days are you looking to gain this weight in?", min_value=60)
         calories_gain = calPerGainWeight * round(change)
         calories_per_day = round(calories_gain/time)
-        st.write(f"For that you need to consume approximately {calories_per_day} calories per day while maintaing a good exercise routine.")
+        st.write(f"For that you need to consume approximately {calories_per_day} calories per day while maintaining a good exercise routine and a healthy lifestyle.")
         st.write("Continue your journey of 'a new you' with a positive mindset. Bon voyage!")
 
 
