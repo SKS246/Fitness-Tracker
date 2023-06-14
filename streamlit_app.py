@@ -18,19 +18,29 @@ def main():
     left_column, right_column = st.columns(2)
 
     with left_column:
-
-        weight = st.slider("Weight (KG)", min_value=0,
+        st.write("Weight (KGs)")
+        weight = st.slider("", min_value=0,
                            max_value=700, value=60, step=1)
-        height = st.slider("Height (M)", min_value=0.00,
-                           max_value=5.00, value=1.00, step=0.01)
+        st.write("##")
+        st.write("Height")
+        left, right = st.columns(2)
+
+        with left:
+
+            height_f = st.number_input(
+                "Feet", min_value=1.0, max_value=8.0, step=1.0)
+
+        with right:
+            height_i = st.number_input(
+                "Inches", min_value=0.0, max_value=11.9, step=1.0)
+
+        height = (height_f * 0.3048) + (height_i * 0.0254)
 
     with right_column:
-        st.markdown(
-            f"""
-            * Weight: {weight} Kilograms
-            * Height: {height} Meters
-        """
-        )
+        st.write(f"Weight: {weight} Kilograms")
+        st.write(f"Height: {height_f} Feet and {height_i} Inches")
+        st.write("#")
+        st.write("#")
 
         bmi = (weight/(height * height))
         st.subheader(f"BMI: {round(bmi, 2)} KG/M\u00b2")
@@ -86,7 +96,8 @@ def main():
     max_w = height * height * 25
 
     if weight >= min_w and weight <= max_w:
-        st.subheader("You can continue to enjoy the goodness of life! You are on track!")
+        st.subheader(
+            "You can continue to enjoy the goodness of life! You are on track!")
     else:
         st.write(
             f"To be 'Healthy' you need to be in-between weights: {round(min_w, 2)} KGs and {round(max_w, 2)} KGs")
@@ -101,20 +112,24 @@ def main():
         calories_burn = calPerLossWeight * round(change)
         total_steps = round(calories_burn/0.04)
         st.write(f"You need to lose a minimum {round(change)} KGs")
-        time = st.number_input(
-            "How many days are you looking to loose this weight in?", min_value=60)
-        steps_per_day = round(total_steps/time)
-        st.write(f"For that you need to take approximately {steps_per_day} steps per day while maintaining a good diet and a healthy lifestyle.")
-        st.write("Continue your journey of 'a new you' with a positive mindset. Bon voyage!")
+        time = st.slider("How many months are you looking to loose this weight in?", min_value=1,
+                         max_value=60, value=6, step=1)
+        steps_per_day = round(total_steps/(time*30))
+        st.write(
+            f"For that you need to take approximately {steps_per_day} steps per day while maintaining a good diet and a healthy lifestyle.")
+        st.write(
+            "Continue your journey of 'a new you' with a positive mindset. Bon voyage!")
     elif cla == "thin":
         change = min_w - change
         st.write(f"You need to gain a minimum {round(change)} KGs")
-        time = st.number_input(
-            "How many days are you looking to gain this weight in?", min_value=60)
+        time = st.slider("How many months are you looking to loose this weight in?", min_value=1,
+                         max_value=60, value=6, step=1)
         calories_gain = calPerGainWeight * round(change)
-        calories_per_day = round(calories_gain/time)
-        st.write(f"For that you need to consume approximately {calories_per_day} calories per day while maintaining a good exercise routine and a healthy lifestyle.")
-        st.write("Continue your journey of 'a new you' with a positive mindset. Bon voyage!")
+        calories_per_day = round(calories_gain/(time*30))
+        st.write(
+            f"For that you need to consume approximately {calories_per_day} calories per day while maintaining a good exercise routine and a healthy lifestyle.")
+        st.write(
+            "Continue your journey of 'a new you' with a positive mindset. Bon voyage!")
 
 
 if __name__ == '__main__':
